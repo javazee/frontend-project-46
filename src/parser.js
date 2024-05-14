@@ -12,7 +12,6 @@ const parse = ( path ) => {
     } else if (type === '.yaml' || type === '.yml') {
         return YAML.parse(fileData);
     }
-    
 };
 
 export {
