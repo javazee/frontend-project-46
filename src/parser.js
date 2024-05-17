@@ -1,19 +1,21 @@
 import { cwd } from 'node:process';
 import { resolve, extname } from 'node:path';
-import { readFileSync } from 'node:fs';
-import YAML from 'yaml';
+import { readFileSync, existsSync } from 'node:fs';
+import { load as loadYaml } from 'yaml-js';
 
-const parse = ( path ) => {
-    const filePath = resolve(cwd(), path);
-    const fileData = readFileSync(filePath);
-    const type = extname(path);
-    if (type === '.json') {
-        return JSON.parse(fileData);
-    } else if (type === '.yaml' || type === '.yml') {
-        return YAML.parse(fileData);
-    }
+const parse = (path) => {
+  const filePath = resolve(cwd(), path);
+  if (!existsSync(path)) {
+    return {};
+  }
+  const fileData = readFileSync(filePath);
+  const type = extname(path);
+  if (type === '.json') {
+    return JSON.parse(fileData);
+  } if (type === '.yaml' || type === '.yml') {
+    return loadYaml(fileData);
+  }
+  return {};
 };
 
-export {
-    parse
-};
+export default parse;
