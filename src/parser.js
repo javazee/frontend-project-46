@@ -1,7 +1,9 @@
 import { cwd } from 'node:process';
 import { resolve, extname } from 'node:path';
 import { readFileSync, existsSync } from 'node:fs';
-import { load as loadYaml } from 'yaml-js';
+import pkg from 'yaml-js';
+
+const { load: loadYaml } = pkg;
 
 const parse = (path) => {
   const filePath = resolve(cwd(), path);
