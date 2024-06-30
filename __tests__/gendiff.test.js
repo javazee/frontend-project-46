@@ -1,16 +1,9 @@
 import { join } from 'path';
+import { readFileSync } from 'node:fs';
 import gendiff from '../src/gendiff.js';
 
 test('gendiff', () => {
-  const expected = `{
-- follow = false
-  host = hexlet.io
-- proxy = 123.234.53.22
-- timeout = 50
-+ timeout = 20
-+ verbose = true
-}
-`;
+  const expected = readFileSync('__fixtures__/comparison12.txt', { encoding: 'utf8', flag: 'r' });
 
   const json1 = '__fixtures__/file1.json';
   const json2 = '__fixtures__/file2.json';
@@ -25,13 +18,7 @@ test('gendiff', () => {
 });
 
 test('gendiff if only one file exists', () => {
-  const expected = `{
-- follow = false
-- host = hexlet.io
-- proxy = 123.234.53.22
-- timeout = 50
-}
-`;
+  const expected = readFileSync('__fixtures__/comparisonToUnexisted.txt', { encoding: 'utf8', flag: 'r' });
 
   const existed = '__fixtures__/file1.json';
   const unexisted = '__fixtures__/unexisted.json';
