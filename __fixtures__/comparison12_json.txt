@@ -1,0 +1,116 @@
+[
+  {
+    "key": "common",
+    "value": [
+      {
+        "key": "follow",
+        "value": false,
+        "result": "added"
+      },
+      {
+        "key": "setting1",
+        "value": "Value 1",
+        "result": "unchanged"
+      },
+      {
+        "key": "setting2",
+        "value": 200,
+        "result": "deleted"
+      },
+      {
+        "key": "setting3",
+        "oldValue": true,
+        "value": null,
+        "result": "changed"
+      },
+      {
+        "key": "setting4",
+        "value": "blah blah",
+        "result": "added"
+      },
+      {
+        "key": "setting5",
+        "value": {
+          "key5": "value5"
+        },
+        "result": "added"
+      },
+      {
+        "key": "setting6",
+        "value": [
+          {
+            "key": "doge",
+            "value": [
+              {
+                "key": "wow",
+                "oldValue": "",
+                "value": "so much",
+                "result": "changed"
+              }
+            ],
+            "result": "hasInner"
+          },
+          {
+            "key": "key",
+            "value": "value",
+            "result": "unchanged"
+          },
+          {
+            "key": "ops",
+            "value": "vops",
+            "result": "added"
+          }
+        ],
+        "result": "hasInner"
+      }
+    ],
+    "result": "hasInner"
+  },
+  {
+    "key": "group1",
+    "value": [
+      {
+        "key": "baz",
+        "oldValue": "bas",
+        "value": "bars",
+        "result": "changed"
+      },
+      {
+        "key": "foo",
+        "value": "bar",
+        "result": "unchanged"
+      },
+      {
+        "key": "nest",
+        "oldValue": {
+          "key": "value"
+        },
+        "value": "str",
+        "result": "changed"
+      }
+    ],
+    "result": "hasInner"
+  },
+  {
+    "key": "group2",
+    "value": {
+      "abc": 12345,
+      "deep": {
+        "id": 45
+      }
+    },
+    "result": "deleted"
+  },
+  {
+    "key": "group3",
+    "value": {
+      "deep": {
+        "id": {
+          "number": 45
+        }
+      },
+      "fee": 100500
+    },
+    "result": "added"
+  }
+]
