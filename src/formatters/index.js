@@ -2,7 +2,7 @@ import toPlain from './PlainFormatter.js';
 import toStylish from './StylishFormatter.js';
 import toJson from './JsonFormatter.js';
 
-const toString =  (comparisionResult, format) => {
+const toString = (comparisionResult, format) => {
   switch (format) {
     case 'stylish':
       return toStylish(comparisionResult);
@@ -11,7 +11,7 @@ const toString =  (comparisionResult, format) => {
     case 'json':
       return toJson(comparisionResult);
     default:
-      throw new Error(`Format '${format}' is not supported. Possible formats: 'stylish', 'plain'`);
+      throw new Error(`Format ${format} is not supported. Possible formats: 'stylish', 'plain'`);
   }
 };
 
